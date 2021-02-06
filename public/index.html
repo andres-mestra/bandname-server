@@ -16,17 +16,12 @@
 
     <script>
         // Conexión con el socket server
-        const socket = io('http://localhost:8080');
-
+        const socket = io(window.location.host);
         
-        /// Para emitir
-        // socket.emit('mensaje-to-server', { data });
-        
-        // Para escuchar
-        socket.on('mensaje-from-server', (data) => {
-            // callback a ejecutar
-        });
-        
+        //Obtener las bandas
+        socket.on('current-bands', (bands) => {
+            console.log(bands)
+        })
 
     </script>
     
