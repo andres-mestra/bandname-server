@@ -21,10 +21,10 @@ class Sockets {
             socket.emit('current-bands', this.bandList.getBands() )
 
             //Votar por la banda
-            this.io.on('votar-banda', (id) => {
+            socket.on('votar-banda', (id) => {
                 this.bandList.increaseVotes( id )
                 //Emitir bandas actualizadas
-                socket.emit('current-bands', this.bandList.getBands())
+                this.io.emit('current-bands', this.bandList.getBands())
             })
         
         });
