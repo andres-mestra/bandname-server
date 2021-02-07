@@ -26,6 +26,11 @@ class Sockets {
                 //Emitir bandas actualizadas
                 this.io.emit('current-bands', this.bandList.getBands())
             })
+
+            socket.on('delete-banda', (id) => {
+                this.bandList.removeBand(id)
+                this.io.emit('current-bands', this.bandList.getBands())
+            })
         
         });
     }
